@@ -1,0 +1,30 @@
+<head>
+  <link rel="stylesheet" href="css/style2.css">
+</head>
+<body> 
+<h2><a href="/">Mashable Story Finder</a></h2>
+
+<nav>
+  <ul>
+    <li>
+        <a href="/results_new">What's New</a>
+    </li>
+    <li>
+        <a href="/results_rising">What's Rising</a>
+    </li>
+    <li>
+        <a href="/results_hot">What's Hot</a>
+    </li>
+  </ul>
+</body>
+
+<form action='/story_hot' method='get'>
+  <p>What's Hot</p>
+  <select name='hot_story' id='hot_story'>
+    <% @hot.each do |story| %>
+      <% title = story["title"] %>
+      <option value="<%= title %>"><%= title %></option>
+    <% end %>
+  </select>
+  <input type='submit'>
+</form>

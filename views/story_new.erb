@@ -1,0 +1,26 @@
+<head>
+  <link rel="stylesheet" href="css/style2.css">
+</head>
+<body> 
+<h2><a href="/">Mashable Story Finder</a></h2>
+
+<nav>
+  <ul>
+    <li>
+        <a href="/results_new">What's New</a>
+    </li>
+    <li>
+        <a href="/results_rising">What's Rising</a>
+    </li>
+    <li>
+        <a href="/results_hot">What's Hot</a>
+    </li>
+  </ul>
+</body>
+<% @new.each do |story|%>
+  <% if story.has_value?(@new_story) %>
+   <img class="img" src=<%= story["image"] %> >
+   <h3><%= story["author"] %></h3><br>
+   <div class="content"><%= story["content"]["plain"] %></div>
+  <% end %>
+<% end %>
